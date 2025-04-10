@@ -1,1 +1,16 @@
-.env
+.env            # Environment variable file
+
+# Byte-compiled / optimized / DLL files
+__pycache__/    # Byte-compiled / optimized / DLL files
+*.py[cod]       # Compiled Python files (pyc, pyo, pyd)
+*.py.class      # Compiled Python class files (Jython)
+
+# Editor-specific files and directories
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# OS or system generated files
+Thumbs.db
