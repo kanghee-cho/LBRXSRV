@@ -15,6 +15,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['srv.lbrx.net']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://srv.lbrx.net',
+]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
