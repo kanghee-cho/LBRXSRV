@@ -85,6 +85,8 @@ AUTHENTICATION_BACKENDS = [
 USERNAME_FIELD = 'email'  # Use email as the username field
 REQUIRED_FIELDS = []  # No additional required fields
 
+AUTH_USER_MODEL = 'lbrxAuth.LbrxUser'  # Custom user model
+
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
