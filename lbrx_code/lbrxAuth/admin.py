@@ -14,4 +14,4 @@ class LbrxUserAdmin(UserAdmin):
         (None, {'fields': ('mfa_enabled', 'mfa_secret')}),
     )
 
-    admin.site.register(LbrxUser, LbrxUserAdmin)
+admin.site.register(LbrxUser, LbrxUserAdmin)
