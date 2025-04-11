@@ -48,6 +48,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lbrx.urls'
+WSGI_APPLICATION = 'lbrx.wsgi.application'
 
 TEMPLATES = [
     {
@@ -64,8 +65,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'lbrx.wsgi.application'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -80,11 +79,6 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default authentication backend
 ]
-
-# Email instead of username for authentication (Django 4.0+)
-USERNAME_FIELD = 'email'  # Use email as the username field
-REQUIRED_FIELDS = []  # No additional required fields
-
 AUTH_USER_MODEL = 'lbrxAuth.LbrxUser'  # Custom user model
 
 # Password validation
@@ -106,9 +100,7 @@ USE_TZ = True
 STATIC_URL = 'staticfiles/'
 STATIC_ROOT = '/opt/lbrx/staticfiles/'
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+# Rest framework settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -121,11 +113,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+# JWT settings
 REST_FRAMEWORK_SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
+# Email settings for sending activation emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = 587
@@ -133,4 +127,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'kh-j.cho@outlook.com'
+
+# Frontend URL for email activation link
 FRONTEND_URL = '/'
