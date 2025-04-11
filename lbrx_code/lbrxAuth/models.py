@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class LbrxUser(AbstractUser):
     email = models.EmailField(unique=True)
-    nickname = models.CharField(max_length=30, unique=True)
     is_active = models.BooleanField(default=False)
     mfa_enabled = models.BooleanField(default=False)
     mfa_secret = models.CharField(max_length=255, blank=True, null=True)
@@ -23,4 +22,4 @@ class LbrxUser(AbstractUser):
     REQUIRED_FIELDS = ['nickname']
 
     def __str__(self):
-        return f"{self.nickname}({self.email})"
+        return f"{self.username}({self.email})"
