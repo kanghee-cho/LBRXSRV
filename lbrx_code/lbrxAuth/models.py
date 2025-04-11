@@ -19,7 +19,6 @@ class LbrxUser(AbstractUser):
     )
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['nickname']
 
     def __str__(self):
         return f"{self.username}({self.email})"
