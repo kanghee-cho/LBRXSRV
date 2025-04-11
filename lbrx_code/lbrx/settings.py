@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     # Django REST framework, Filters, Token Authentication
     'rest_framework',
     'django_filters',
-    'rest_framework.simplejwt',
+    'rest_framework_simplejwt',
     # lbrxAuth App
     'lbrxAuth',
 ]
