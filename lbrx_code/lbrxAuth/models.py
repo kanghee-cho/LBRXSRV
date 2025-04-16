@@ -9,10 +9,6 @@ class LbrxUser(AbstractUser):
     mfa_enabled = models.BooleanField(default=False)
     mfa_secret = models.CharField(max_length=255, blank=True, null=True)
 
-    created_date = models.DateTimeField(default=now, editable=False)
-    activated_date = models.DateTimeField(blank=True, null=True)
-    last_login_date = models.DateTimeField(blank=True, null=True)
-
     groups = models.ManyToManyField(
         Group,
         related_name="lbrxuser_set",  # Custom related_name to avoid clashes
