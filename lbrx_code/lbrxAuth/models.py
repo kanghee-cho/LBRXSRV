@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.utils.timezone import now
 
 class LbrxUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -7,6 +8,10 @@ class LbrxUser(AbstractUser):
     is_active = models.BooleanField(default=False)
     mfa_enabled = models.BooleanField(default=False)
     mfa_secret = models.CharField(max_length=255, blank=True, null=True)
+
+    created_date = models.DateTimeField(default=now, editable=False)
+    activated_date = models.DateTimeField(blank=True, null=True)
+    last_login_date = models.DateTimeField(blank=True, null=True)
 
     groups = models.ManyToManyField(
         Group,
