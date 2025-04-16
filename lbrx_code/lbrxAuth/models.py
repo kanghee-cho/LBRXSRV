@@ -8,6 +8,8 @@ class LbrxUser(AbstractUser):
     is_active = models.BooleanField(default=False)
     mfa_enabled = models.BooleanField(default=False)
     mfa_secret = models.CharField(max_length=255, blank=True, null=True)
+    # date_joined is inherited from AbstractUser
+    # last_login is inherited from AbstractUser
 
     groups = models.ManyToManyField(
         Group,
